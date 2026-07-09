@@ -24,7 +24,6 @@
             --shadow-matrix: rgba(0, 0, 0, 0.5);
         }
 
-        /* --- BODY ARCHITECTURE --- */
         body {
             background-color: var(--bg-primary);
             color: var(--text-main);
@@ -35,7 +34,6 @@
             padding: 20px;
         }
 
-        /* --- CONTAINER STRUCTURE --- */
         .main-container {
             width: 100%;
             max-width: 650px;
@@ -46,7 +44,6 @@
             box-shadow: 0 10px 30px var(--shadow-matrix);
         }
 
-        /* --- HEADER STYLING --- */
         header {
             text-align: center;
             margin-bottom: 25px;
@@ -67,7 +64,6 @@
             margin-top: 5px;
         }
 
-        /* --- LINK MATRIX/LIST SYSTEM --- */
         .file-list {
             display: flex;
             flex-direction: column;
@@ -85,33 +81,46 @@
             text-decoration: none;
             position: relative;
             overflow: hidden;
+            width: 100%;
+            text-align: left;
         }
 
-        /* Hover Feedback Loop */
-        .file-item:hover {
+        /* Hover jika file aktif/tersedia */
+        .file-item:not(.corrupted):hover {
             transform: translateY(-2px);
             border-color: var(--accent-color);
             box-shadow: 0 5px 15px rgba(88, 166, 255, 0.1);
         }
 
-        /* FILE ICON SIMULATION */
+        /* Styling Visual jika Jalur Link Corrupt/Rusak */
+        .file-item.corrupted {
+            background-color: #1a1515;
+            border-color: #442323;
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Modifikasi Ikon Permanen Folder */
         .file-icon {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(248, 81, 73, 0.1);
+            width: 45px;
+            height: 45px;
+            background-color: rgba(88, 166, 255, 0.1);
             border-radius: 8px;
             display: flex;
             justify-content: center;
             align-items: center;
             margin-right: 15px;
-            color: #f85149;
-            font-weight: bold;
-            font-size: 0.8rem;
+            font-size: 1.3rem; /* Menyesuaikan visual emoji folder agar pas */
             flex-shrink: 0;
+            border: 1px solid rgba(88, 166, 255, 0.2);
+        }
+
+        /* Warna Ikon Khusus jika Corrupt */
+        .file-item.corrupted .file-icon {
+            background-color: rgba(248, 81, 73, 0.1);
             border: 1px solid rgba(248, 81, 73, 0.2);
         }
 
-        /* METADATA CONTAINER */
         .file-details {
             flex-grow: 1;
         }
@@ -120,11 +129,11 @@
             color: #ffffff;
             font-size: 1rem;
             font-weight: 500;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
             transition: color 0.2s ease;
         }
 
-        .file-item:hover .file-title {
+        .file-item:not(.corrupted):hover .file-title {
             color: var(--accent-color);
         }
 
@@ -135,19 +144,32 @@
             gap: 15px;
         }
 
-        /* ACTION ARROW INDICATOR */
+        .meta-item strong {
+            color: #a3b3c2;
+            font-weight: 500;
+        }
+
+        .status-ok {
+            color: #56d364;
+            font-weight: 600;
+        }
+
+        .status-fail {
+            color: #f85149;
+            font-weight: 600;
+        }
+
         .action-indicator {
             color: var(--text-muted);
             font-size: 1.2rem;
             transition: transform 0.2s ease, color 0.2s ease;
         }
 
-        .file-item:hover .action-indicator {
+        .file-item:not(.corrupted):hover .action-indicator {
             color: var(--accent-color);
             transform: translateX(3px);
         }
 
-        /* --- FOOTER CONTENT --- */
         footer {
             margin-top: 25px;
             text-align: center;
@@ -160,83 +182,103 @@
 
     <div class="main-container">
         <header>
-            <h1>🗂️ Pusat Dokumentasi Raw CDN</h1>
-            <p>Klik pada berkas untuk merender dan membuka dokumen langsung di browser.</p>
+            <!-- LINGKAR BIRU & LINGKAR KUNING DI SINI -->
+            <h1>🗂️ Katakese-Jion</h1>
+            <p>Siapakah Yang Seperti ALLAH ?</p>
         </header>
 
-        <div class="file-list">
-            
-            <!-- Berkas 01 -->
-            <a href="https://files.catbox.moe/iq9nqk.PDF" class="file-item" target="_blank" rel="noopener noreferrer">
-                <div class="file-icon">PDF</div>
-                <div class="file-details">
-                    <div class="file-title">Dokumen Utama - Bagian 1</div>
-                    <div class="file-meta">
-                        <span>Sumber: Catbox CDN</span>
-                        <span>Status: Raw Stream</span>
-                    </div>
-                </div>
-                <div class="action-indicator">➔</div>
-            </a>
-
-            <!-- Berkas 02 -->
-            <a href="https://files.catbox.moe/9hhmvg.PDF" class="file-item" target="_blank" rel="noopener noreferrer">
-                <div class="file-icon">PDF</div>
-                <div class="file-details">
-                    <div class="file-title">Dokumen Utama - Bagian 2</div>
-                    <div class="file-meta">
-                        <span>Sumber: Catbox CDN</span>
-                        <span>Status: Raw Stream</span>
-                    </div>
-                </div>
-                <div class="action-indicator">➔</div>
-            </a>
-
-            <!-- Berkas 03 -->
-            <a href="https://files.catbox.moe/l35ei9.PDF" class="file-item" target="_blank" rel="noopener noreferrer">
-                <div class="file-icon">PDF</div>
-                <div class="file-details">
-                    <div class="file-title">Dokumen Utama - Bagian 3</div>
-                    <div class="file-meta">
-                        <span>Sumber: Catbox CDN</span>
-                        <span>Status: Raw Stream</span>
-                    </div>
-                </div>
-                <div class="action-indicator">➔</div>
-            </a>
-
-            <!-- Berkas 04 -->
-            <a href="https://files.catbox.moe/nk4vgy.PDF" class="file-item" target="_blank" rel="noopener noreferrer">
-                <div class="file-icon">PDF</div>
-                <div class="file-details">
-                    <div class="file-title">Dokumen Utama - Bagian 4</div>
-                    <div class="file-meta">
-                        <span>Sumber: Catbox CDN</span>
-                        <span>Status: Raw Stream</span>
-                    </div>
-                </div>
-                <div class="action-indicator">➔</div>
-            </a>
-
-            <!-- Berkas 05 -->
-            <a href="https://files.catbox.moe/jzy1k4.pdf" class="file-item" target="_blank" rel="noopener noreferrer">
-                <div class="file-icon">PDF</div>
-                <div class="file-details">
-                    <div class="file-title">Dokumen Utama - Bagian 5</div>
-                    <div class="file-meta">
-                        <span>Sumber: Catbox CDN</span>
-                        <span>Status: Raw Stream</span>
-                    </div>
-                </div>
-                <div class="action-indicator">➔</div>
-            </a>
-
-        </div>
+        <!-- Container Utama Tempat Tombol Dibuat Otomatis -->
+        <div id="file-container" class="file-list"></div>
 
         <footer>
-            <p>Arsitektur Repositori Minimalis Berkecepatan Tinggi</p>
+            <!-- LINGKAR MERAH DI SINI -->
+            <p>St.Maria Bunda Allah Doakanlah Kami, St.Thomas Aquinas Doakanlah Kami</p>
         </footer>
     </div>
+
+<script>
+    // ==============================================================
+    // DATABASE DATA LINK (Hanya Perlu Isi Nama File dan URL Saja!)
+    // ==============================================================
+    // Angka indeks depan ("01. ", "02. ", dst.) akan digenerate otomatis 
+    // oleh sistem sesuai dengan posisi urutan tombolnya di bawah ini.
+    const databaseLink = [
+        { 
+            namaFile: "Summa Theologica (Complete English Edition in One Volume), Translated by the Fathers of the English Dominican Province (Benziger Brothers, 1947)", 
+            url: "https://drive.google.com/drive/folders/1mbkaF6E1CWNvcDlsu8J0Q41WFKVM9Zlw" 
+        },
+        { 
+            namaFile: "Katekismus Gereja Katolik/Catechism of the Catholic Curch", 
+            url: "https://drive.google.com/drive/folders/1P0EczHMqDR5zcxYhhTpPK_mcEEqKhiHT" 
+        },
+        { 
+            namaFile: "Alkitab PL&PB Asli Bahasa Ibrani dan Yunani", 
+            url: "https://drive.google.com/drive/folders/1l2Zbm4OlYEEH5sgTD4n4smH4knhCylWY" 
+        }
+    ];
+
+    // ==============================================================
+    // AUTOMATION CORE ENGINE
+    // ==============================================================
+    const container = document.getElementById("file-container");
+
+    // Fungsi Cerdas Memvalidasi Kesiapan Jalur Link (Status)
+    function deteksiStatus(url) {
+        if (!url) return { teks: "Tidak Tersedia", valid: false };
+        
+        // Proteksi jika jalur mengandung indikasi rusak, kosong, atau tidak diawali http/https
+        if (url.includes("corrupt") || url.includes("mati") || !url.startsWith("http")) {
+            return { teks: "Tidak Tersedia", valid: false };
+        }
+        
+        return { teks: "Tersedia", valid: true };
+    }
+
+    // Fungsi Utama untuk Membangun Komponen Tombol ke Layar
+    function bangunRepositoriOtomatis(dataArray) {
+        container.innerHTML = "";
+
+        dataArray.forEach((item, index) => {
+            // Jalankan mesin deteksi kesiapan status link
+            const infoStatus = deteksiStatus(item.url);
+
+            // Logika Penomoran Format Permanen: 01-9999.(spasi)nama file
+            // Menggunakan String.padStart agar jika nomor di bawah 10 otomatis diberi angka 0 di depannya (01, 02... 10... 100)
+            const nomorUrut = String(index + 1).padStart(2, '0');
+            const namaFormatPermanen = `${nomorUrut}. ${item.namaFile}`;
+
+            // Buat elemen tag link <a>
+            const aTag = document.createElement("a");
+            aTag.className = `file-item ${infoStatus.valid ? '' : 'corrupted'}`;
+            
+            if (infoStatus.valid) {
+                aTag.href = item.url;
+                aTag.target = "_blank";
+                aTag.rel = "noopener noreferrer";
+            } else {
+                aTag.href = "#";
+                aTag.onclick = (e) => e.preventDefault(); // Kunci navigasi jika status mati/rusak
+            }
+
+            // Suntik struktur HTML baru yang bersih (Hanya menyisakan status) ke dalam DOM
+            aTag.innerHTML = `
+                <div class="file-icon">📁</div>
+                <div class="file-details">
+                    <div class="file-title">${namaFormatPermanen}</div>
+                    <div class="file-meta">
+                        <span class="meta-item"><strong>Status:</strong> <span class="${infoStatus.valid ? 'status-ok' : 'status-fail'}">${infoStatus.teks}</span></span>
+                    </div>
+                </div>
+                <div class="action-indicator">${infoStatus.valid ? '➔' : '🔒'}</div>
+            `;
+            
+            container.appendChild(aTag);
+        });
+    }
+
+    // Eksekusi pembangunan antarmuka repositori secara instan
+    bangunRepositoriOtomatis(databaseLink);
+</script>
 
 </body>
 </html>
