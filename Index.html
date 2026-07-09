@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repositori Berkas Digital Ultra Cepat</title>
+    <style>
+        /* --- RESET & ROOT VARIABLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --accent-color: #58a6ff;
+            --accent-hover: #1f6feb;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --border-color: #30363d;
+            --shadow-matrix: rgba(0, 0, 0, 0.5);
+        }
+
+        /* --- BODY ARCHITECTURE --- */
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* --- CONTAINER STRUCTURE --- */
+        .main-container {
+            width: 100%;
+            max-width: 650px;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 30px var(--shadow-matrix);
+        }
+
+        /* --- HEADER STYLING --- */
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* --- LINK MATRIX/LIST SYSTEM --- */
+        .file-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .file-item {
+            display: flex;
+            align-items: center;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 15px 20px;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hover Feedback Loop */
+        .file-item:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-color);
+            box-shadow: 0 5px 15px rgba(88, 166, 255, 0.1);
+        }
+
+        /* FILE ICON SIMULATION */
+        .file-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(248, 81, 73, 0.1);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            color: #f85149;
+            font-weight: bold;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            border: 1px solid rgba(248, 81, 73, 0.2);
+        }
+
+        /* METADATA CONTAINER */
+        .file-details {
+            flex-grow: 1;
+        }
+
+        .file-title {
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 2px;
+            transition: color 0.2s ease;
+        }
+
+        .file-item:hover .file-title {
+            color: var(--accent-color);
+        }
+
+        .file-meta {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* ACTION ARROW INDICATOR */
+        .action-indicator {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .file-item:hover .action-indicator {
+            color: var(--accent-color);
+            transform: translateX(3px);
+        }
+
+        /* --- FOOTER CONTENT --- */
+        footer {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <header>
+            <h1>🗂️ Pusat Dokumentasi Raw CDN</h1>
+            <p>Klik pada berkas untuk merender dan membuka dokumen langsung di browser.</p>
+        </header>
+
+        <div class="file-list">
+            
+            <!-- Berkas 01 -->
+            <a href="https://files.catbox.moe/iq9nqk.PDF" class="file-item" target="_blank" rel="noopener noreferrer">
+                <div class="file-icon">PDF</div>
+                <div class="file-details">
+                    <div class="file-title">Dokumen Utama - Bagian 1</div>
+                    <div class="file-meta">
+                        <span>Sumber: Catbox CDN</span>
+                        <span>Status: Raw Stream</span>
+                    </div>
+                </div>
+                <div class="action-indicator">➔</div>
+            </a>
+
+            <!-- Berkas 02 -->
+            <a href="https://files.catbox.moe/9hhmvg.PDF" class="file-item" target="_blank" rel="noopener noreferrer">
+                <div class="file-icon">PDF</div>
+                <div class="file-details">
+                    <div class="file-title">Dokumen Utama - Bagian 2</div>
+                    <div class="file-meta">
+                        <span>Sumber: Catbox CDN</span>
+                        <span>Status: Raw Stream</span>
+                    </div>
+                </div>
+                <div class="action-indicator">➔</div>
+            </a>
+
+            <!-- Berkas 03 -->
+            <a href="https://files.catbox.moe/l35ei9.PDF" class="file-item" target="_blank" rel="noopener noreferrer">
+                <div class="file-icon">PDF</div>
+                <div class="file-details">
+                    <div class="file-title">Dokumen Utama - Bagian 3</div>
+                    <div class="file-meta">
+                        <span>Sumber: Catbox CDN</span>
+                        <span>Status: Raw Stream</span>
+                    </div>
+                </div>
+                <div class="action-indicator">➔</div>
+            </a>
+
+            <!-- Berkas 04 -->
+            <a href="https://files.catbox.moe/nk4vgy.PDF" class="file-item" target="_blank" rel="noopener noreferrer">
+                <div class="file-icon">PDF</div>
+                <div class="file-details">
+                    <div class="file-title">Dokumen Utama - Bagian 4</div>
+                    <div class="file-meta">
+                        <span>Sumber: Catbox CDN</span>
+                        <span>Status: Raw Stream</span>
+                    </div>
+                </div>
+                <div class="action-indicator">➔</div>
+            </a>
+
+            <!-- Berkas 05 -->
+            <a href="https://files.catbox.moe/jzy1k4.pdf" class="file-item" target="_blank" rel="noopener noreferrer">
+                <div class="file-icon">PDF</div>
+                <div class="file-details">
+                    <div class="file-title">Dokumen Utama - Bagian 5</div>
+                    <div class="file-meta">
+                        <span>Sumber: Catbox CDN</span>
+                        <span>Status: Raw Stream</span>
+                    </div>
+                </div>
+                <div class="action-indicator">➔</div>
+            </a>
+
+        </div>
+
+        <footer>
+            <p>Arsitektur Repositori Minimalis Berkecepatan Tinggi</p>
+        </footer>
+    </div>
+
+</body>
+</html>
